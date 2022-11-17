@@ -1,8 +1,36 @@
+import {
+  CoffeeCard,
+  CoffeeCover
+} from './components';
+
+import {
+  HomeContainer,
+  CoffeeContainer,
+  CoffeeList,
+  CoffeeListItem,
+} from './styles';
+
 export function Home() {
-  console.log('ma oi')
   return (
-    <div style={{ height: '100vh', width: '100%', background: 'red' }}>
-      9999
-    </div>
+    <HomeContainer>
+      <CoffeeCover />
+
+      {/*<CoffeeContainer>*/}
+      {/*  <h2>Nossos cafés</h2>*/}
+
+      {/*  <CoffeeList>*/}
+
+      {/*    <CoffeeListItem>*/}
+      {/*      <CoffeeCard />*/}
+      {/*    </CoffeeListItem>*/}
+
+      {/*    <CoffeeListItem>*/}
+      {/*      <CoffeeCard />*/}
+      {/*    </CoffeeListItem>*/}
+
+      {/*  </CoffeeList>*/}
+
+      {/*</CoffeeContainer>*/}
+    </HomeContainer>
   );
 }

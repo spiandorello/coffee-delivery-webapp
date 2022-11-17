@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { Router } from './shared';
 
-import { defaultTheme } from './styles';
+import { defaultTheme, GlobalStyles } from './styles';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -14,6 +14,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <BrowserRouter>
         <Router />
       </BrowserRouter>
+
+      <GlobalStyles />
     </ThemeProvider>
   </React.StrictMode>
 )
