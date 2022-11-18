@@ -1,5 +1,5 @@
 import { ShoppingCart } from 'phosphor-react';
-import CoffeeExpress from '../../../../assets/coffee-express.svg';
+import Coffee from '../../../../assets/coffee-express.svg'
 
 import {
   CoffeeCardContainer,
@@ -9,41 +9,74 @@ import {
   CoffeeCardIcon,
   CoffeeCardWrapper,
   CoffeeCarActions,
+  CoffeeQuantityInput,
+  CoffeeCheckoutButton,
+  CoffeeTags,
+  CoffeeTag,
 } from './styles';
 
-export function CoffeeCard() {
+import { money } from '../../../../utils';
+
+interface CoffeeTypes {
+  express: 'express',
+}
+
+interface CoffeeCardProps {
+  type: string
+  title: string
+  description: string
+  price: number
+  tags?: string[]
+}
+
+export function CoffeeCard(props: CoffeeCardProps) {
+  const {
+    title,
+    description,
+    price,
+    tags,
+  } = props;
+
   return (
     <CoffeeCardContainer>
       <CoffeeCardWrapper>
-        <CoffeeCardIcon src={CoffeeExpress} />
+        <CoffeeCardIcon src={Coffee} />
+
+        {tags ?
+          <CoffeeTags>
+            {tags?.map((tag) => (
+              <CoffeeTag>{tag}</CoffeeTag>
+            ))}
+          </CoffeeTags>
+          :
+          null
+        }
 
         <CoffeeCarContent>
           <CoffeeCardTitle>
-            Expresso Tradicional
+            {title}
           </CoffeeCardTitle>
 
           <CoffeeCardDescription>
-            O tradicional café feito com água quente e grãos moídos
+            {description}
           </CoffeeCardDescription>
         </CoffeeCarContent>
 
         <CoffeeCarActions>
           <div>
-            <span>
-              R$&nbsp;
-            </span>
-            <span>
-              9,90
-            </span>
+            {money.format(price)}
           </div>
 
-          <input
+          <CoffeeQuantityInput
             type="number"
+            step={1}
+            min={0}
+            defaultValue={0}
           />
 
-          <span>
+          <CoffeeCheckoutButton>
             <ShoppingCart size={24} weight="fill" />
-          </span>
+          </CoffeeCheckoutButton>
 
         </CoffeeCarActions>
       </CoffeeCardWrapper>

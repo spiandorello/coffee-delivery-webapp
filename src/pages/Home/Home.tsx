@@ -1,36 +1,12 @@
-import {
-  CoffeeCard,
-  CoffeeCover
-} from './components';
+import { CoffeeMenu, CoffeeCover } from './components';
 
-import {
-  HomeContainer,
-  CoffeeContainer,
-  CoffeeList,
-  CoffeeListItem,
-} from './styles';
+import { HomeContainer } from './styles';
 
 export function Home() {
   return (
     <HomeContainer>
       <CoffeeCover />
-
-      {/*<CoffeeContainer>*/}
-      {/*  <h2>Nossos cafés</h2>*/}
-
-      {/*  <CoffeeList>*/}
-
-      {/*    <CoffeeListItem>*/}
-      {/*      <CoffeeCard />*/}
-      {/*    </CoffeeListItem>*/}
-
-      {/*    <CoffeeListItem>*/}
-      {/*      <CoffeeCard />*/}
-      {/*    </CoffeeListItem>*/}
-
-      {/*  </CoffeeList>*/}
-
-      {/*</CoffeeContainer>*/}
+      <CoffeeMenu />
     </HomeContainer>
   );
 }

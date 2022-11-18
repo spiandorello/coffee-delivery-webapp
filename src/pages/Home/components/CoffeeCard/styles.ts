@@ -26,10 +26,31 @@ export const CoffeeCarContent = styled.div`
   gap: 0.5rem;
 `;
 
+export const CoffeeTags = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-self: center;
+`;
+
+export const CoffeeTag = styled.span`
+  padding: 0.25rem 0.5rem;
+
+  font-family: 'Roboto',sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 130%;
+  
+  border-radius: 1rem;
+  background-color: ${props => props.theme.default.pallet['yellow-light']};
+  color: ${props => props.theme.default.pallet['yellow-dark']};
+`;
+
+
 export const CoffeeCardTitle = styled.h3`
   font-size: ${props => props.theme.default.header.font.size.medium};
 `;
-
 
 export const CoffeeCardDescription = styled.div`
   font-size: ${props => props.theme.default.text.font.size.small};
@@ -52,8 +73,29 @@ export const CoffeeCarActions  = styled.div`
     grid-column-end: 6;
   }
 
-  span {
+  button {
     grid-column-start: 6;
     grid-column-end: 8;
+  }
+`;
+
+export const CoffeeQuantityInput = styled.input`
+  border: 0;
+  padding: 0.5rem;
+  background: #E6E5E5;
+  border-radius: 6px;
+  height: 38px;
+  width: 4rem;
+`;
+
+export const CoffeeCheckoutButton = styled.button`
+  display: flex;
+  padding: 0.5rem;
+  color: ${props => props.theme.default.pallet['white']};
+  background: ${props => props.theme.default.pallet['purple-dark']};
+  cursor: pointer;
+  
+  &:hover {
+    background: ${props => props.theme.default.pallet['purple']};
   }
 `;
