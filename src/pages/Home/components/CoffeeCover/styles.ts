@@ -5,6 +5,10 @@ export const Presentation = styled.div`
   display: flex;
   gap: 2rem;
   justify-content: space-between;
+  padding: 1rem 2rem;
+
+  background: url('./../../../../assets/home-background.svg')  no-repeat;
+  background-size: cover;
 
   div {
     display: flex;

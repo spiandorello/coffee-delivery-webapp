@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { ShoppingCart } from 'phosphor-react';
 import Coffee from '../../../../assets/coffee-express.svg'
 
@@ -16,6 +18,7 @@ import {
 } from './styles';
 
 import { money } from '../../../../utils';
+import {useShoppingCart} from '../../../../context';
 
 interface CoffeeTypes {
   express: 'express',
@@ -32,10 +35,28 @@ interface CoffeeCardProps {
 export function CoffeeCard(props: CoffeeCardProps) {
   const {
     title,
+    type,
     description,
     price,
     tags,
   } = props;
+
+  const { addShoppingCardItem } = useShoppingCart();
+
+  const [quantity, setQuantity] = React.useState(0);
+
+  function handleChangeCoffeeQuantity(value: number) {
+    setQuantity(value);
+  }
+
+  function handleAddShoppingCart() {
+    addShoppingCardItem({
+      type,
+      title,
+      price,
+      quantity,
+    })
+  }
 
   return (
     <CoffeeCardContainer>
@@ -72,9 +93,10 @@ export function CoffeeCard(props: CoffeeCardProps) {
             step={1}
             min={0}
             defaultValue={0}
+            onChange={(event) => handleChangeCoffeeQuantity(Number(event.target.value))}
           />
 
-          <CoffeeCheckoutButton>
+          <CoffeeCheckoutButton onClick={handleAddShoppingCart}>
             <ShoppingCart size={24} weight="fill" />
           </CoffeeCheckoutButton>
 

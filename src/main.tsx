@@ -6,14 +6,20 @@ import { ThemeProvider } from 'styled-components';
 
 import { Router } from './shared';
 
+import { ShoppingCartProvider } from './context';
+
 import { defaultTheme, GlobalStyles } from './styles';
+
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ThemeProvider theme={defaultTheme}>
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
+
+      <ShoppingCartProvider>
+        <BrowserRouter>
+            <Router />
+        </BrowserRouter>
+      </ShoppingCartProvider>
 
       <GlobalStyles />
     </ThemeProvider>

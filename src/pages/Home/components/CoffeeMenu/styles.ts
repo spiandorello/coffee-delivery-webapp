@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const CoffeeContainer = styled.div`
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
   grid-gap: 2rem;
