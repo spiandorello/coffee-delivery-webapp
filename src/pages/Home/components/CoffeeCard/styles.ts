@@ -24,6 +24,7 @@ export const CoffeeCarContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  text-align: center;
 `;
 
 export const CoffeeTags = styled.div`
@@ -33,14 +34,14 @@ export const CoffeeTags = styled.div`
   align-self: center;
 `;
 
-export const CoffeeTag = styled.span`
+export const CoffeeTag = styled.p`
   padding: 0.25rem 0.5rem;
 
   font-family: 'Roboto',sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 0.75rem;
-  line-height: 130%;
+  text-transform: uppercase;
   
   border-radius: 1rem;
   background-color: ${props => props.theme.default.pallet['yellow-light']};
@@ -90,6 +91,9 @@ export const CoffeeQuantityInput = styled.input`
 
 export const CoffeeCheckoutButton = styled.button`
   display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
   padding: 0.5rem;
   color: ${props => props.theme.default.pallet['white']};
   background: ${props => props.theme.default.pallet['purple-dark']};
