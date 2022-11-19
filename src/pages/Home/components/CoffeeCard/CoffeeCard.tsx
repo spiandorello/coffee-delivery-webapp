@@ -1,7 +1,6 @@
 import * as React from 'react'
 
 import { ShoppingCart } from 'phosphor-react'
-import Coffee from '../../../../assets/coffee-express.svg'
 
 import {
   CoffeeCardContainer,
@@ -20,9 +19,9 @@ import {
 import { money } from '../../../../utils'
 import { useShoppingCart } from '../../../../context'
 
-interface CoffeeTypes {
-  express: 'express'
-}
+// interface CoffeeTypes {
+//   express: 'express'
+// }
 
 interface CoffeeCardProps {
   type: string
@@ -52,10 +51,16 @@ export function CoffeeCard(props: CoffeeCardProps) {
     })
   }
 
+  function getCoffeeImageUrl(type: string) {
+    return new URL(`./../../../../assets/coffee-${type}.svg`, import.meta.url).href
+  }
+
+  const coffeeImageUrl = getCoffeeImageUrl(type)
+
   return (
     <CoffeeCardContainer>
       <CoffeeCardWrapper>
-        <CoffeeCardIcon src={Coffee} />
+        <CoffeeCardIcon src={coffeeImageUrl} />
 
         {tags ? (
           <CoffeeTags>

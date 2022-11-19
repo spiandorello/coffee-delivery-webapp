@@ -7,7 +7,7 @@ export const Presentation = styled.div`
   justify-content: space-between;
   padding: 1rem 2rem;
 
-  background: url('./../../../../assets/home-background.svg') no-repeat;
+  background: url(${() => new URL('././../../../../assets/home-background.svg', import.meta.url).href}) no-repeat;
   background-size: cover;
 
   div {
