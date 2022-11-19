@@ -1,11 +1,11 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import { Header } from '../../components';
+import { Header } from '../../components'
 
-import { PresentationContainer } from './styles';
+import { PresentationContainer } from './styles'
 
 interface PresentationInterface {
-  children: React.ReactNode,
+  children: React.ReactNode
 }
 
 export function Presentation({ children }: PresentationInterface) {
@@ -14,5 +14,5 @@ export function Presentation({ children }: PresentationInterface) {
       <Header />
       {children}
     </PresentationContainer>
-  );
+  )
 }

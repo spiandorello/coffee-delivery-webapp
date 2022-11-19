@@ -1,10 +1,10 @@
-import { Home } from './Home';
-import { Presentation } from '../templates';
-import React from 'react';
+import { Home } from './Home'
+import { Presentation } from '../templates'
+import React from 'react'
 
 interface RouteInterface {
-  path: string;
-  element: () => JSX.Element,
+  path: string
+  element: () => any
 }
 
 function addElementWrapper(
@@ -18,7 +18,7 @@ function addElementWrapper(
         <Screen />
       </Wrapper>
     ),
-  };
+  }
 }
 
 export const routes = [
@@ -28,4 +28,4 @@ export const routes = [
       element: Home,
     },
   ].map((route) => addElementWrapper(Presentation, route)),
-].flat();
+].flat()

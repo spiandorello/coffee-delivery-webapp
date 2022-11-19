@@ -1,2 +1,2 @@
-export * from './CoffeeCard';
-export { CoffeeCard as default } from './CoffeeCard';
+export * from './CoffeeCard'
+export { CoffeeCard as default } from './CoffeeCard'

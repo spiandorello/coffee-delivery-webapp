@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { PalletsProps } from '../../../../styles/themes';
+import styled from 'styled-components'
+import { PalletsProps } from '../../../../styles/themes'
 
 export const Presentation = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ export const Presentation = styled.div`
   justify-content: space-between;
   padding: 1rem 2rem;
 
-  background: url('./../../../../assets/home-background.svg')  no-repeat;
+  background: url('./../../../../assets/home-background.svg') no-repeat;
   background-size: cover;
 
   div {
@@ -36,12 +36,12 @@ export const Presentation = styled.div`
     margin-top: 4rem;
     list-style: none;
     font-size: ${({ theme }) => theme.default.text.font.size.regular};
-    
+
     li {
       display: flex;
       align-items: center;
       gap: 0.8rem;
-      
+
       p {
         font-size: ${({ theme }) => theme.default.text.font.size.regular};
         line-height: 130%;
@@ -49,10 +49,10 @@ export const Presentation = styled.div`
       }
     }
   }
-`;
+`
 
 interface IconWrapperProps {
-  color: keyof PalletsProps,
+  color: keyof PalletsProps
 }
 
 export const IconWrapper = styled.span<IconWrapperProps>`
@@ -62,8 +62,8 @@ export const IconWrapper = styled.span<IconWrapperProps>`
   background: ${(props) => props.theme.default.pallet[props.color]};
   border-radius: 50%;
   padding: 0.5rem;
-  
+
   svg {
-    color: ${({ theme }) => theme.default.pallet['white']};
+    color: ${({ theme }) => theme.default.pallet.white};
   }
 `

@@ -1,2 +1,2 @@
-export * from './defaultTheme';
-export { defaultTheme as default } from './defaultTheme';
+export * from './defaultTheme'
+export { defaultTheme as default } from './defaultTheme'

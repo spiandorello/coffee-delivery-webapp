@@ -1,1 +1,1 @@
-export * as money from './money';
+export * as money from './money'

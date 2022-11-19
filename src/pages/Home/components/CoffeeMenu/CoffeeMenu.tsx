@@ -1,11 +1,7 @@
-import {
-  CoffeeList,
-  CoffeeListItem,
-  CoffeeContainer,
-} from './styles'
+import { CoffeeList, CoffeeListItem, CoffeeContainer } from './styles'
 
-import { CoffeeCard } from '../index';
-import { coffeeList } from '../../../../mocks/coffee-list';
+import { CoffeeCard } from '../index'
+import { coffeeList } from '../../../../mocks/coffee-list'
 
 export function CoffeeMenu() {
   return (
@@ -13,13 +9,7 @@ export function CoffeeMenu() {
       <h2>Nossos cafés</h2>
 
       <CoffeeList>
-        {coffeeList.map(({
-          type,
-          tags,
-          title,
-          description,
-          price,
-         }, key) => (
+        {coffeeList.map(({ type, tags, title, description, price }, key) => (
           <CoffeeListItem key={key}>
             <CoffeeCard
               type={type}
@@ -30,7 +20,6 @@ export function CoffeeMenu() {
             />
           </CoffeeListItem>
         ))}
-
       </CoffeeList>
     </CoffeeContainer>
   )

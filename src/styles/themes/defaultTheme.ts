@@ -1,28 +1,28 @@
 export interface PalletsProps {
-  'yellow-dark': string,
-  'yellow': string,
-  'yellow-light': string,
-  'purple-dark': string,
-  'purple': string,
-  'purple-light': string,
-  'base-title': string,
-  'base-subtitle': string,
-  'base-text': string,
-  'base-label': string,
-  'base-hover': string,
-  'base-button': string,
-  'base-input': string,
-  'base-card': string,
-  'base-background': string,
-  'white': string
+  'yellow-dark': string
+  yellow: string
+  'yellow-light': string
+  'purple-dark': string
+  purple: string
+  'purple-light': string
+  'base-title': string
+  'base-subtitle': string
+  'base-text': string
+  'base-label': string
+  'base-hover': string
+  'base-button': string
+  'base-input': string
+  'base-card': string
+  'base-background': string
+  white: string
 }
 
 export const Pallets: PalletsProps = {
   'yellow-dark': '#c47f15',
-  'yellow': '#DBAC2C',
+  yellow: '#DBAC2C',
   'yellow-light': '#F1E9C9',
   'purple-dark': '#4B2995',
-  'purple': '#8047F8',
+  purple: '#8047F8',
   'purple-light': '#EBE5F9',
   'base-title': '#272221',
   'base-subtitle': '#403937',
@@ -33,7 +33,7 @@ export const Pallets: PalletsProps = {
   'base-input': '#EDEDED',
   'base-card': '#F3F2F2',
   'base-background': '#FAFAFA',
-  'white': '#FFF',
+  white: '#FFF',
 }
 
 export const defaultTheme = {

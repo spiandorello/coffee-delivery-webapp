@@ -3,15 +3,16 @@ export function format(
   currency = 'BRL',
   i18n = document.documentElement.lang,
 ) {
-  let money = value;
+  let money = value
 
   if (!value) {
-    money = 0;
+    money = 0
   }
 
   return new Intl.NumberFormat(i18n, {
     style: 'currency',
     currency,
-  }).format(money)
-    .replace(/^(\D+)/, '$1 ');
+  })
+    .format(money)
+    .replace(/^(\D+)/, '$1 ')
 }

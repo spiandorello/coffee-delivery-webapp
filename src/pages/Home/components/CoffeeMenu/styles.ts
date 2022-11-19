@@ -1,16 +1,16 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const CoffeeContainer = styled.div`
   padding: 0 2rem;
   display: flex;
   flex-direction: column;
   grid-gap: 2rem;
-  
+
   h2 {
     font-size: ${({ theme }) => theme.default.header.font.size.large};
     color: ${({ theme }) => theme.default.pallet['base-subtitle']};
   }
-`;
+`
 
 export const CoffeeList = styled.ul`
   display: grid;
@@ -19,6 +19,4 @@ export const CoffeeList = styled.ul`
   list-style: none;
 `
 
-export const CoffeeListItem = styled.li`
-  
-`
+export const CoffeeListItem = styled.li``

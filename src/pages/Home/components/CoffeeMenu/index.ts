@@ -1,2 +1,2 @@
-export * from './CoffeeMenu';
-export { CoffeeMenu as default } from './CoffeeMenu';
+export * from './CoffeeMenu'
+export { CoffeeMenu as default } from './CoffeeMenu'

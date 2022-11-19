@@ -1,6 +1,6 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import { ShoppingCart } from 'phosphor-react';
+import { ShoppingCart } from 'phosphor-react'
 import Coffee from '../../../../assets/coffee-express.svg'
 
 import {
@@ -15,13 +15,13 @@ import {
   CoffeeCheckoutButton,
   CoffeeTags,
   CoffeeTag,
-} from './styles';
+} from './styles'
 
-import { money } from '../../../../utils';
-import {useShoppingCart} from '../../../../context';
+import { money } from '../../../../utils'
+import { useShoppingCart } from '../../../../context'
 
 interface CoffeeTypes {
-  express: 'express',
+  express: 'express'
 }
 
 interface CoffeeCardProps {
@@ -33,20 +33,14 @@ interface CoffeeCardProps {
 }
 
 export function CoffeeCard(props: CoffeeCardProps) {
-  const {
-    title,
-    type,
-    description,
-    price,
-    tags,
-  } = props;
+  const { title, type, description, price, tags } = props
 
-  const { addShoppingCardItem } = useShoppingCart();
+  const { addShoppingCardItem } = useShoppingCart()
 
-  const [quantity, setQuantity] = React.useState(0);
+  const [quantity, setQuantity] = React.useState(0)
 
   function handleChangeCoffeeQuantity(value: number) {
-    setQuantity(value);
+    setQuantity(value)
   }
 
   function handleAddShoppingCart() {
@@ -63,45 +57,38 @@ export function CoffeeCard(props: CoffeeCardProps) {
       <CoffeeCardWrapper>
         <CoffeeCardIcon src={Coffee} />
 
-        {tags ?
+        {tags ? (
           <CoffeeTags>
             {tags?.map((tag) => (
               <CoffeeTag>{tag}</CoffeeTag>
             ))}
           </CoffeeTags>
-          :
-          null
-        }
+        ) : null}
 
         <CoffeeCarContent>
-          <CoffeeCardTitle>
-            {title}
-          </CoffeeCardTitle>
+          <CoffeeCardTitle>{title}</CoffeeCardTitle>
 
-          <CoffeeCardDescription>
-            {description}
-          </CoffeeCardDescription>
+          <CoffeeCardDescription>{description}</CoffeeCardDescription>
         </CoffeeCarContent>
 
         <CoffeeCarActions>
-          <div>
-            {money.format(price)}
-          </div>
+          <div>{money.format(price)}</div>
 
           <CoffeeQuantityInput
             type="number"
             step={1}
             min={0}
             defaultValue={0}
-            onChange={(event) => handleChangeCoffeeQuantity(Number(event.target.value))}
+            onChange={(event) =>
+              handleChangeCoffeeQuantity(Number(event.target.value))
+            }
           />
 
           <CoffeeCheckoutButton onClick={handleAddShoppingCart}>
             <ShoppingCart size={24} weight="fill" />
           </CoffeeCheckoutButton>
-
         </CoffeeCarActions>
       </CoffeeCardWrapper>
     </CoffeeCardContainer>
-  );
+  )
 }
