@@ -58,34 +58,10 @@ export const CoffeeCardDescription = styled.div`
 `
 
 export const CoffeeCarActions = styled.div`
-  display: grid;
-  grid-auto-columns: 1fr;
+  display: flex;
   align-items: center;
-  grid-column-gap: 0.5rem;
-
-  div {
-    grid-column-start: 1;
-    grid-column-end: 4;
-  }
-
-  input {
-    grid-column-start: 4;
-    grid-column-end: 6;
-  }
-
-  button {
-    grid-column-start: 6;
-    grid-column-end: 8;
-  }
-`
-
-export const CoffeeQuantityInput = styled.input`
-  border: 0;
-  padding: 0.5rem;
-  background: #e6e5e5;
-  border-radius: 6px;
-  height: 38px;
-  width: 4rem;
+  justify-content: space-between;
+  gap: 0.5rem;
 `
 
 export const CoffeeCheckoutButton = styled.button`

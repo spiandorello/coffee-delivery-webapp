@@ -10,7 +10,6 @@ import {
   CoffeeCardIcon,
   CoffeeCardWrapper,
   CoffeeCarActions,
-  CoffeeQuantityInput,
   CoffeeCheckoutButton,
   CoffeeTags,
   CoffeeTag,
@@ -18,6 +17,7 @@ import {
 
 import { money } from '../../../../utils'
 import { useShoppingCart } from '../../../../context'
+import {InputNumber} from '../../../../components/Form/InputNumber';
 
 // interface CoffeeTypes {
 //   express: 'express'
@@ -79,19 +79,19 @@ export function CoffeeCard(props: CoffeeCardProps) {
         <CoffeeCarActions>
           <div>{money.format(price)}</div>
 
-          <CoffeeQuantityInput
-            type="number"
-            step={1}
-            min={0}
-            defaultValue={0}
-            onChange={(event) =>
-              handleChangeCoffeeQuantity(Number(event.target.value))
-            }
+          <InputNumber
+              type="number"
+              step={1}
+              min={0}
+              max={50}
+              defaultValue={0}
+              onValueChange={handleChangeCoffeeQuantity}
           />
 
           <CoffeeCheckoutButton onClick={handleAddShoppingCart}>
             <ShoppingCart size={24} weight="fill" />
           </CoffeeCheckoutButton>
+
         </CoffeeCarActions>
       </CoffeeCardWrapper>
     </CoffeeCardContainer>

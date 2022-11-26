@@ -2,15 +2,16 @@ import * as React from 'react'
 
 interface ShoppingCartContextType {
   shoppingCartQuantity: number
-  shoppingCart: ShoppingCardItem[]
-  addShoppingCardItem: (data: ShoppingCardItem) => void
+  shoppingCart: ShoppingCartItem[]
+  addShoppingCardItem: (data: ShoppingCartItem) => void
+  removeShoppingCardItem: (type: string) => void
 }
 
 interface ShoppingCartProviderType {
   children: React.ReactNode
 }
 
-interface ShoppingCardItem {
+export interface ShoppingCartItem {
   title: string
   type: string
   quantity: number
@@ -22,10 +23,10 @@ export const ShoppingCartContext = React.createContext(
 )
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
-  const [shoppingCart, setShoppingCart] = React.useState<ShoppingCardItem[]>([])
+  const [shoppingCart, setShoppingCart] = React.useState<ShoppingCartItem[]>([])
   const [shoppingCartQuantity, setShoppingCartQuantity] = React.useState(0)
 
-  function addShoppingCardItem(data: ShoppingCardItem) {
+  function addShoppingCardItem(data: ShoppingCartItem) {
     setShoppingCart((carts) => {
       const coffeeCartIndex = carts.findIndex((cart) => cart.type === data.type)
 
@@ -37,7 +38,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
       }
 
       const cartItemsQuantity = cartItems.reduce(
-        (acm, cartItem: ShoppingCardItem) => {
+        (acm, cartItem: ShoppingCartItem) => {
           return cartItem.quantity + acm
         },
         0,
@@ -49,12 +50,35 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
     })
   }
 
+  function removeShoppingCardItem(type: string) {
+    setShoppingCart((shoppingCartItems) => {
+      const shoppingCartItemIndex = shoppingCartItems.findIndex((item) => item?.type === type);
+      if (shoppingCartItemIndex >= 0) {
+        delete shoppingCartItems[shoppingCartItemIndex];
+      }
+
+      const cartItems = shoppingCartItems.filter(item => item);
+
+      const cartItemsQuantity = cartItems.reduce(
+        (acm, cartItem: ShoppingCartItem) => {
+          return cartItem.quantity + acm
+        },
+        0,
+      )
+
+      setShoppingCartQuantity(cartItemsQuantity)
+
+      return cartItems;
+    })
+  }
+
   return (
     <ShoppingCartContext.Provider
       value={{
         shoppingCart,
         shoppingCartQuantity,
         addShoppingCardItem,
+        removeShoppingCardItem,
       }}
     >
       {children}

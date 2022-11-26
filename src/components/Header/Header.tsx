@@ -11,7 +11,9 @@ export function Header() {
 
   return (
     <HeaderContainer>
-      <Logo src={CoffeeDeliveryLogo} />
+      <NavLink to="/">
+        <Logo src={CoffeeDeliveryLogo} />
+      </NavLink>
 
       <nav>
         <LocationBadge>
