@@ -12,7 +12,7 @@ export function InputNumber(props: InputNumberProps) {
       type="number"
       {...props}
       onChange={(event) => {
-        if (props.onValueChange) {
+        if (props?.onValueChange) {
           return props.onValueChange(Number(event.target.value))
         }
       }}

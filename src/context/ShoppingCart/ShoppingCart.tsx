@@ -8,6 +8,7 @@ export interface ShoppingCartItem {
 }
 
 interface ShoppingCartContextType {
+  deliveryTax: number
   shoppingCartQuantity: number
   shoppingCart: ShoppingCartItem[]
   addShoppingCardItem: (data: ShoppingCartItem) => void
@@ -77,6 +78,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
   return (
     <ShoppingCartContext.Provider
       value={{
+        deliveryTax: 3.3,
         shoppingCart,
         shoppingCartQuantity,
         addShoppingCardItem,

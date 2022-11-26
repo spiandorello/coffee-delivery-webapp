@@ -87,3 +87,16 @@ export const CartPaymentInfo = styled.div`
     justify-content: space-between;
   }
 `
+
+export const EmptyCartItems = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  p {
+    font-size: ${(props) => props.theme.default.text.font.size.small};
+    text-align: center;
+  }
+`

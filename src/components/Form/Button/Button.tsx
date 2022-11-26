@@ -1,6 +1,7 @@
+import * as React from 'react'
 import { Button as BaseButton } from './styles'
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: any
   label: string
   active?: boolean
@@ -10,10 +11,14 @@ interface ButtonProps {
 }
 
 export function Button(props: ButtonProps) {
-  const { label, icon, variant = 'primary' } = props
+  const { label, icon, variant = 'primary', disabled = false } = props
 
   return (
-    <BaseButton variant={variant} {...props}>
+    <BaseButton
+      variant={variant}
+      disabled={disabled}
+      {...props}
+    >
       {icon}
       <span>{label}</span>
     </BaseButton>

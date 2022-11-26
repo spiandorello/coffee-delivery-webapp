@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Trash } from 'phosphor-react'
 
+import { Button, InputNumber } from '../../../../components'
 import { ShoppingCartItem, useShoppingCart } from '../../../../context'
 
 import {
@@ -9,13 +10,19 @@ import {
   CartItem,
   CartItemActions,
   CartPaymentInfo,
+  EmptyCartItems,
 } from './styles'
-import { InputNumber } from '../../../../components/Form/InputNumber'
-import { Button } from '../../../../components'
 
 export function CustomerCart() {
-  const { shoppingCart, addShoppingCardItem, removeShoppingCardItem } =
-    useShoppingCart()
+  const {
+    deliveryTax,
+    shoppingCart,
+    addShoppingCardItem,
+    removeShoppingCardItem,
+  } = useShoppingCart()
+
+  const [totalItems, setTotalItems] = React.useState(0)
+  const [totalPrice, setTotalPrice] = React.useState(0)
 
   function getCoffeeImageUrl(type: string) {
     return new URL(`./../../../../assets/coffee-${type}.svg`, import.meta.url)
@@ -34,64 +41,94 @@ export function CustomerCart() {
     })
   }
 
+  React.useEffect(() => {
+    const totalItemsPrice = shoppingCart.reduce((acm, { quantity, price }) => {
+      return acm + quantity * price
+    }, 0)
+
+    setTotalItems(totalItemsPrice)
+  }, [shoppingCart])
+
+  React.useEffect(() => {
+    setTotalPrice(totalItems + deliveryTax)
+  }, [totalItems, deliveryTax])
+
+  const hasShoppingCartItems = shoppingCart.length > 0;
+
   return (
     <Container>
       <h4>Complete seu pedido</h4>
 
       <div>
-        <CartList>
-          {shoppingCart.map((item, key) => {
-            const { type, title, price } = item
-            const coffeeImageUrl = getCoffeeImageUrl(type)
+        {!hasShoppingCartItems ? (
+          <EmptyCartItems>
+            <h3>Carrinho vazio</h3>
+            <p>Selecione seus cafés no catálogo para finalizar sua compra.</p>
+          </EmptyCartItems>
+        ) : (
+          <CartList>
+            {shoppingCart.map((item, key) => {
+              const { type, title, price } = item
+              const coffeeImageUrl = getCoffeeImageUrl(type)
 
-            return (
-              <CartItem key={key}>
-                <img src={coffeeImageUrl} alt="" />
+              return (
+                <CartItem key={key}>
+                  <img src={coffeeImageUrl} alt="" />
 
-                <span>
-                  <span>{title}</span>
+                  <span>
+                    <span>{title}</span>
 
-                  <CartItemActions>
-                    <InputNumber
-                      type="number"
-                      step={1}
-                      min={0}
-                      max={50}
-                      defaultValue={item.quantity}
-                      onValueChange={(quantity) =>
-                        handleChangeCoffeeQuantity(item, quantity)
-                      }
-                    />
+                    <CartItemActions>
+                      <InputNumber
+                        type="number"
+                        step={1}
+                        min={0}
+                        max={50}
+                        defaultValue={item.quantity}
+                        onValueChange={(quantity) =>
+                          handleChangeCoffeeQuantity(item, quantity)
+                        }
+                      />
 
-                    <Button
-                      icon={<Trash size={18} />}
-                      label="Remover"
-                      size="small"
-                      onClick={() => removeShoppingCardItem(type)}
-                    />
-                  </CartItemActions>
-                </span>
+                      <Button
+                        icon={<Trash size={18} />}
+                        label="Remover"
+                        size="small"
+                        onClick={() => removeShoppingCardItem(type)}
+                      />
+                    </CartItemActions>
+                  </span>
 
-                <span>R$ {price}</span>
-              </CartItem>
-            )
-          })}
-        </CartList>
+                  <span>R$ {price}</span>
+                </CartItem>
+              )
+            })}
+          </CartList>
+        )}
 
         <CartPaymentInfo>
           <div>
             <span>Total de itens</span>
-            <span>R$ 29,70</span>
+            <span>R$ {totalItems}</span>
           </div>
 
           <div>
             <span>Entrega</span>
-            <span>R$ 3,70</span>
+            {hasShoppingCartItems ?
+              <span>R$ {deliveryTax}</span>
+              :
+              <span>R$ 0,00</span>
+            }
+
           </div>
 
           <div>
             <h3>Total</h3>
-            <h3>R$ 33,70</h3>
+            {hasShoppingCartItems ?
+              <h3>R$ {totalPrice}</h3>
+              :
+              <span>R$ 0,00</span>
+            }
           </div>
         </CartPaymentInfo>
 
@@ -99,6 +136,7 @@ export function CustomerCart() {
           variant="secondary"
           label="Confirmar pedido"
           onClick={() => {}}
+          disabled={!hasShoppingCartItems}
         />
       </div>
     </Container>

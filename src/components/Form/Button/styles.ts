@@ -1,13 +1,14 @@
 import styled, { css } from 'styled-components'
 
-interface ButtonProps {
+interface ButtonProps  {
   active?: boolean
   size?: 'small' | 'medium'
   variant?: 'primary' | 'secondary'
 }
 
-export const Button = styled.div<ButtonProps>`
+export const Button = styled.button<ButtonProps>`
   flex: 1;
+  width: 100%;
   gap: 0.5rem;
   cursor: pointer;
   display: flex;
