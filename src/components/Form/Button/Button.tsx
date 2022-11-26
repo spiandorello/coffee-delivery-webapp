@@ -1,6 +1,4 @@
-import {
-  Button as BaseButton
-} from './styles'
+import { Button as BaseButton } from './styles'
 
 interface ButtonProps {
   icon?: any
@@ -12,15 +10,12 @@ interface ButtonProps {
 }
 
 export function Button(props: ButtonProps) {
-  const { label, icon, variant = 'primary' } = props;
+  const { label, icon, variant = 'primary' } = props
 
   return (
-    <BaseButton
-      variant={variant}
-      {...props}
-    >
+    <BaseButton variant={variant} {...props}>
       {icon}
       <span>{label}</span>
     </BaseButton>
-  );
+  )
 }

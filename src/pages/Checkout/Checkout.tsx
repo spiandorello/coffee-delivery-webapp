@@ -1,7 +1,4 @@
-import {
-  CustomerCart,
-  CustomerPaymentForm
-} from './components';
+import { CustomerCart, CustomerPaymentForm } from './components'
 
 import { Container } from './styles'
 

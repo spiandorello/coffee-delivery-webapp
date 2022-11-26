@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Presentation } from '../templates'
 
-import { Home, Checkout } from './index';
+import { Home, Checkout } from './index'
 
 interface RouteInterface {
   path: string

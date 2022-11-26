@@ -1,21 +1,31 @@
-import * as React from 'react';
+import * as React from 'react'
 import { Trash } from 'phosphor-react'
 
-import {ShoppingCartItem, useShoppingCart} from '../../../../context';
+import { ShoppingCartItem, useShoppingCart } from '../../../../context'
 
-import { Container, CartList, CartItem, CartItemActions,CartPaymentInfo } from './styles';
-import { InputNumber } from '../../../../components/Form/InputNumber';
-import { Button } from '../../../../components';
-
+import {
+  Container,
+  CartList,
+  CartItem,
+  CartItemActions,
+  CartPaymentInfo,
+} from './styles'
+import { InputNumber } from '../../../../components/Form/InputNumber'
+import { Button } from '../../../../components'
 
 export function CustomerCart() {
-  const { shoppingCart, addShoppingCardItem, removeShoppingCardItem } = useShoppingCart()
+  const { shoppingCart, addShoppingCardItem, removeShoppingCardItem } =
+    useShoppingCart()
 
   function getCoffeeImageUrl(type: string) {
-    return new URL(`./../../../../assets/coffee-${type}.svg`, import.meta.url).href
+    return new URL(`./../../../../assets/coffee-${type}.svg`, import.meta.url)
+      .href
   }
 
-  function handleChangeCoffeeQuantity(item: ShoppingCartItem, quantity: number) {
+  function handleChangeCoffeeQuantity(
+    item: ShoppingCartItem,
+    quantity: number,
+  ) {
     addShoppingCardItem({
       type: item.type,
       title: item.title,
@@ -29,12 +39,9 @@ export function CustomerCart() {
       <h4>Complete seu pedido</h4>
 
       <div>
-
         <CartList>
-
-          {shoppingCart.map((item, key
-          ) => {
-            const { type, title, price }  = item;
+          {shoppingCart.map((item, key) => {
+            const { type, title, price } = item
             const coffeeImageUrl = getCoffeeImageUrl(type)
 
             return (
@@ -45,14 +52,15 @@ export function CustomerCart() {
                   <span>{title}</span>
 
                   <CartItemActions>
-
                     <InputNumber
                       type="number"
                       step={1}
                       min={0}
                       max={50}
                       defaultValue={item.quantity}
-                      onValueChange={(quantity) => handleChangeCoffeeQuantity(item, quantity)}
+                      onValueChange={(quantity) =>
+                        handleChangeCoffeeQuantity(item, quantity)
+                      }
                     />
 
                     <Button
@@ -61,18 +69,13 @@ export function CustomerCart() {
                       size="small"
                       onClick={() => removeShoppingCardItem(type)}
                     />
-
                   </CartItemActions>
-
                 </span>
 
-                <span>
-                  R$ {price}
-                </span>
+                <span>R$ {price}</span>
               </CartItem>
             )
           })}
-
         </CartList>
 
         <CartPaymentInfo>
@@ -90,7 +93,6 @@ export function CustomerCart() {
             <h3>Total</h3>
             <h3>R$ 33,70</h3>
           </div>
-
         </CartPaymentInfo>
 
         <Button

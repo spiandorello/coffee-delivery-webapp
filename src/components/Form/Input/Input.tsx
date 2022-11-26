@@ -1,13 +1,6 @@
-import {
-  Input as BaseInput
-} from './styles'
-import {InputHTMLAttributes} from 'react';
+import { Input as BaseInput } from './styles'
+import { InputHTMLAttributes } from 'react'
 
 export function Input(props: InputHTMLAttributes<any>) {
-  return (
-      <BaseInput
-        type="text"
-        {...props}
-      />
-  );
+  return <BaseInput type="text" {...props} />
 }

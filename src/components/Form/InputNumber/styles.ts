@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.input`
   display: flex;
@@ -8,6 +8,6 @@ export const Container = styled.input`
   border: none;
 
   border-radius: 4px;
-  background-color: ${props => props.theme.default.pallet['base-button']};
-  color: ${props => props.theme.default.pallet['base-text']};
+  background-color: ${(props) => props.theme.default.pallet['base-button']};
+  color: ${(props) => props.theme.default.pallet['base-text']};
 `

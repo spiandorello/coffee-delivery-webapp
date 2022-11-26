@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-`;
+`
 
 export const RecipeAddress = styled.div`
   display: grid;
@@ -13,34 +13,34 @@ export const RecipeAddress = styled.div`
   padding: 2rem;
 
   border-radius: 6px;
-  background: ${props => props.theme.default.pallet['base-card']};
+  background: ${(props) => props.theme.default.pallet['base-card']};
 `
 
 export const RecipeAddressHeader = styled.div`
   grid-column: 1 / 13;
-  
+
   display: flex;
   gap: 0.5rem;
-  
+
   span {
     svg {
-      color: ${props => props.theme.default.pallet['yellow-dark']};
+      color: ${(props) => props.theme.default.pallet['yellow-dark']};
     }
   }
-  
+
   span + span {
     color: blue;
-    
+
     h2 {
-      color: ${props => props.theme.default.pallet['base-subtitle']};
-      font-size: ${props => props.theme.default.text.font.size.medium};
+      color: ${(props) => props.theme.default.pallet['base-subtitle']};
+      font-size: ${(props) => props.theme.default.text.font.size.medium};
       font-weight: 400;
     }
-    
+
     p {
       margin-top: 0.5rem;
-      color: ${props => props.theme.default.pallet['base-text']};
-      font-size: ${props => props.theme.default.text.font.size.small};
+      color: ${(props) => props.theme.default.pallet['base-text']};
+      font-size: ${(props) => props.theme.default.text.font.size.small};
     }
   }
 `
@@ -71,7 +71,6 @@ export const FormGroupState = styled.div`
   grid-column: 12 / 13;
 `
 
-
 export const PaymentMethodsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -80,31 +79,30 @@ export const PaymentMethodsContainer = styled.div`
   padding: 2rem;
 
   border-radius: 6px;
-  background: ${props => props.theme.default.pallet['base-card']};
+  background: ${(props) => props.theme.default.pallet['base-card']};
 `
-
 
 export const PaymentMethodsHeader = styled.div`
   grid-column: 1 / 13;
-  
+
   display: flex;
   gap: 0.5rem;
 
   svg {
-    color: ${props => props.theme.default.pallet['purple-dark']};
+    color: ${(props) => props.theme.default.pallet['purple-dark']};
   }
-  
+
   span {
     h2 {
-      color: ${props => props.theme.default.pallet['base-subtitle']};
-      font-size: ${props => props.theme.default.text.font.size.medium};
+      color: ${(props) => props.theme.default.pallet['base-subtitle']};
+      font-size: ${(props) => props.theme.default.text.font.size.medium};
       font-weight: 400;
     }
-    
+
     p {
       margin-top: 0.5rem;
-      color: ${props => props.theme.default.pallet['base-text']};
-      font-size: ${props => props.theme.default.text.font.size.small};
+      color: ${(props) => props.theme.default.pallet['base-text']};
+      font-size: ${(props) => props.theme.default.text.font.size.small};
     }
   }
 `

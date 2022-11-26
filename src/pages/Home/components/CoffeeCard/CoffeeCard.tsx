@@ -17,7 +17,7 @@ import {
 
 import { money } from '../../../../utils'
 import { useShoppingCart } from '../../../../context'
-import {InputNumber} from '../../../../components/Form/InputNumber';
+import { InputNumber } from '../../../../components/Form/InputNumber'
 
 // interface CoffeeTypes {
 //   express: 'express'
@@ -52,7 +52,8 @@ export function CoffeeCard(props: CoffeeCardProps) {
   }
 
   function getCoffeeImageUrl(type: string) {
-    return new URL(`./../../../../assets/coffee-${type}.svg`, import.meta.url).href
+    return new URL(`./../../../../assets/coffee-${type}.svg`, import.meta.url)
+      .href
   }
 
   const coffeeImageUrl = getCoffeeImageUrl(type)
@@ -64,8 +65,8 @@ export function CoffeeCard(props: CoffeeCardProps) {
 
         {tags ? (
           <CoffeeTags>
-            {tags?.map((tag) => (
-              <CoffeeTag>{tag}</CoffeeTag>
+            {tags?.map((tag, key) => (
+              <CoffeeTag key={key}>{tag}</CoffeeTag>
             ))}
           </CoffeeTags>
         ) : null}
@@ -80,18 +81,17 @@ export function CoffeeCard(props: CoffeeCardProps) {
           <div>{money.format(price)}</div>
 
           <InputNumber
-              type="number"
-              step={1}
-              min={0}
-              max={50}
-              defaultValue={0}
-              onValueChange={handleChangeCoffeeQuantity}
+            type="number"
+            step={1}
+            min={0}
+            max={50}
+            defaultValue={0}
+            onValueChange={handleChangeCoffeeQuantity}
           />
 
           <CoffeeCheckoutButton onClick={handleAddShoppingCart}>
             <ShoppingCart size={24} weight="fill" />
           </CoffeeCheckoutButton>
-
         </CoffeeCarActions>
       </CoffeeCardWrapper>
     </CoffeeCardContainer>

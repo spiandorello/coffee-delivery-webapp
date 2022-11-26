@@ -1,14 +1,12 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import {
-  Container,
-} from './styles'
+import { Container } from './styles'
 
-interface InputNumber extends React.InputHTMLAttributes<HTMLInputElement> {
+interface InputNumberProps extends React.InputHTMLAttributes<HTMLInputElement> {
   onValueChange?: (value: number) => void
 }
 
-export function InputNumber(props: InputNumber) {
+export function InputNumber(props: InputNumberProps) {
   return (
     <Container
       type="number"
@@ -17,8 +15,7 @@ export function InputNumber(props: InputNumber) {
         if (props.onValueChange) {
           return props.onValueChange(Number(event.target.value))
         }
-      }
-      }
+      }}
     />
-  );
+  )
 }

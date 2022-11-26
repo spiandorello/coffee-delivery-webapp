@@ -1,5 +1,12 @@
 import * as React from 'react'
 
+export interface ShoppingCartItem {
+  title: string
+  type: string
+  quantity: number
+  price: number
+}
+
 interface ShoppingCartContextType {
   shoppingCartQuantity: number
   shoppingCart: ShoppingCartItem[]
@@ -9,13 +16,6 @@ interface ShoppingCartContextType {
 
 interface ShoppingCartProviderType {
   children: React.ReactNode
-}
-
-export interface ShoppingCartItem {
-  title: string
-  type: string
-  quantity: number
-  price: number
 }
 
 export const ShoppingCartContext = React.createContext(
@@ -52,12 +52,14 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
 
   function removeShoppingCardItem(type: string) {
     setShoppingCart((shoppingCartItems) => {
-      const shoppingCartItemIndex = shoppingCartItems.findIndex((item) => item?.type === type);
+      const shoppingCartItemIndex = shoppingCartItems.findIndex(
+        (item) => item?.type === type,
+      )
       if (shoppingCartItemIndex >= 0) {
-        delete shoppingCartItems[shoppingCartItemIndex];
+        delete shoppingCartItems[shoppingCartItemIndex]
       }
 
-      const cartItems = shoppingCartItems.filter(item => item);
+      const cartItems = shoppingCartItems.filter((item) => item)
 
       const cartItemsQuantity = cartItems.reduce(
         (acm, cartItem: ShoppingCartItem) => {
@@ -68,7 +70,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
 
       setShoppingCartQuantity(cartItemsQuantity)
 
-      return cartItems;
+      return cartItems
     })
   }
 
