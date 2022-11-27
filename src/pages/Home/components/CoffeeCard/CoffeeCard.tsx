@@ -86,7 +86,7 @@ export function CoffeeCard(props: CoffeeCardProps) {
             min={0}
             max={50}
             defaultValue={0}
-            onValueChange={handleChangeCoffeeQuantity}
+            callback={handleChangeCoffeeQuantity}
           />
 
           <CoffeeCheckoutButton onClick={handleAddShoppingCart}>

@@ -3,7 +3,7 @@ import * as React from 'react'
 import { Container } from './styles'
 
 interface InputNumberProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  onValueChange?: (value: number) => void
+  callback?: (value: number) => void
 }
 
 export function InputNumber(props: InputNumberProps) {
@@ -12,8 +12,8 @@ export function InputNumber(props: InputNumberProps) {
       type="number"
       {...props}
       onChange={(event) => {
-        if (props?.onValueChange) {
-          return props.onValueChange(Number(event.target.value))
+        if (props?.callback) {
+          return props.callback(Number(event.target.value))
         }
       }}
     />

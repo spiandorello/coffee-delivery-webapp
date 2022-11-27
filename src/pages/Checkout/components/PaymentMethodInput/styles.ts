@@ -1,20 +1,22 @@
 import styled, { css } from 'styled-components'
+import * as React from 'react'
 
-interface ButtonProps {
+interface PaymentMethodInputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   active?: boolean
-  size?: 'small' | 'medium'
   variant?: 'primary' | 'secondary'
 }
 
-export const Button = styled.button<ButtonProps>`
+export const PaymentMethodInput = styled.span<PaymentMethodInputProps>`
   flex: 1;
   width: 100%;
   gap: 0.5rem;
   cursor: pointer;
   display: flex;
   align-items: center;
-
+  padding: 1rem;
   border-radius: 6px;
+  border: 1px solid transparent;
 
   ${(props) =>
     props?.variant === 'primary'
@@ -45,15 +47,6 @@ export const Button = styled.button<ButtonProps>`
     font-size: ${(props) => props.theme.default.text.font.size.xsmall};
     text-transform: uppercase;
   }
-
-  ${(props) =>
-    props?.size === 'small'
-      ? css`
-          padding: 0.5rem;
-        `
-      : css`
-          padding: 1rem;
-        `}
 
   ${(props) =>
     props?.active

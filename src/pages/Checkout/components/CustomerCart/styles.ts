@@ -51,6 +51,7 @@ export const CartItemActions = styled.div`
   display: flex;
   margin-top: 0.5rem;
   gap: 0.5rem;
+  align-items: center;
 
   button {
     display: flex;

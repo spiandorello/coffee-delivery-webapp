@@ -47,13 +47,13 @@ export function CustomerCart() {
     }, 0)
 
     setTotalItems(totalItemsPrice)
-  }, [shoppingCart])
+  }, [JSON.stringify(shoppingCart), shoppingCart])
 
   React.useEffect(() => {
     setTotalPrice(totalItems + deliveryTax)
   }, [totalItems, deliveryTax])
 
-  const hasShoppingCartItems = shoppingCart.length > 0;
+  const hasShoppingCartItems = shoppingCart.length > 0
 
   return (
     <Container>
@@ -85,7 +85,7 @@ export function CustomerCart() {
                         min={0}
                         max={50}
                         defaultValue={item.quantity}
-                        onValueChange={(quantity) =>
+                        callback={(quantity) =>
                           handleChangeCoffeeQuantity(item, quantity)
                         }
                       />
@@ -114,29 +114,28 @@ export function CustomerCart() {
 
           <div>
             <span>Entrega</span>
-            {hasShoppingCartItems ?
+            {hasShoppingCartItems ? (
               <span>R$ {deliveryTax}</span>
-              :
+            ) : (
               <span>R$ 0,00</span>
-            }
-
+            )}
           </div>
 
           <div>
             <h3>Total</h3>
-            {hasShoppingCartItems ?
+            {hasShoppingCartItems ? (
               <h3>R$ {totalPrice}</h3>
-              :
+            ) : (
               <span>R$ 0,00</span>
-            }
+            )}
           </div>
         </CartPaymentInfo>
 
         <Button
+          type="submit"
           variant="secondary"
           label="Confirmar pedido"
-          onClick={() => {}}
-          disabled={!hasShoppingCartItems}
+          // disabled={!hasShoppingCartItems}
         />
       </div>
     </Container>
