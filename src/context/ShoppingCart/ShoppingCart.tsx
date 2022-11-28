@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {
-  addCartItem,
+  addCartItem, emptyCartItems,
   removeCartItem,
   shoppingCartReducers,
 } from '../../reducers'
@@ -18,6 +18,8 @@ interface ShoppingCartContextType {
   shoppingCart: ShoppingCartItem[]
   addShoppingCardItem: (data: ShoppingCartItem) => void
   removeShoppingCardItem: (type: string) => void
+  emptyShoppingCartItems: () => void
+  createOrder: () => void
 }
 
 interface ShoppingCartProviderType {
@@ -56,6 +58,14 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
     dispatch(removeCartItem(type))
   }
 
+  function emptyShoppingCartItems() {
+    dispatch(emptyCartItems())
+  }
+
+  function createOrder() {
+    emptyShoppingCartItems()
+  }
+
   React.useEffect(() => {
     const stateJSON = JSON.stringify(shoppingCartState)
     localStorage.setItem(
@@ -70,8 +80,10 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
         deliveryTax: 3.3,
         shoppingCart: shoppingCartState.shoppingCartItems,
         shoppingCartQuantity: shoppingCartState.shoppingCartQuantity,
+        createOrder,
         addShoppingCardItem,
         removeShoppingCardItem,
+        emptyShoppingCartItems,
       }}
     >
       {children}

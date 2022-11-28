@@ -25,12 +25,7 @@ import {
 } from './styles'
 
 export function CustomerPaymentForm() {
-  const {
-    payment,
-    deliveryAddress,
-    setPayment,
-    setDeliveryAddress
-  } = useUser()
+  const { payment, deliveryAddress, setPayment, setDeliveryAddress } = useUser()
 
   const form = useFormContext()
 

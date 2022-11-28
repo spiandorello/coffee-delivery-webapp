@@ -62,12 +62,16 @@ export function shoppingCartReducers(
 
         draft.shoppingCartQuantity = draft.shoppingCartItems.reduce(
           (acm, cartItem: ShoppingCartItem) => {
-            console.log(cartItem.type)
             return cartItem.quantity + acm
           },
           0,
         )
       })
+    case ActionsTypes.EMPTY_CART_ITEMS:
+      return {
+        shoppingCartItems: [],
+        shoppingCartQuantity: 0,
+      }
     default:
       return state
   }

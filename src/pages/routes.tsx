@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Presentation } from '../templates'
 
-import { Home, Checkout } from './index'
+import { Home, Checkout, CheckoutReview } from './index'
 
 interface RouteInterface {
   path: string
@@ -32,6 +32,10 @@ export const routes = [
     {
       path: '/checkout',
       element: Checkout,
+    },
+    {
+      path: '/checkout/review',
+      element: CheckoutReview,
     },
   ].map((route) => addElementWrapper(Presentation, route)),
 ].flat()

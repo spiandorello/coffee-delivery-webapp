@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Trash } from 'phosphor-react'
+import { useFormContext } from 'react-hook-form';
 
 import { Button, InputNumber } from '../../../../components'
 import { ShoppingCartItem, useShoppingCart } from '../../../../context'
@@ -20,6 +21,8 @@ export function CustomerCart() {
     addShoppingCardItem,
     removeShoppingCardItem,
   } = useShoppingCart()
+
+  const form = useFormContext();
 
   const [totalItems, setTotalItems] = React.useState(0)
   const [totalPrice, setTotalPrice] = React.useState(0)
@@ -53,7 +56,7 @@ export function CustomerCart() {
     setTotalPrice(totalItems + deliveryTax)
   }, [totalItems, deliveryTax])
 
-  const hasShoppingCartItems = shoppingCart.length > 0
+  const hasShoppingCartItems = shoppingCart.length > 0 && form.formState.isValid
 
   return (
     <Container>
@@ -135,7 +138,7 @@ export function CustomerCart() {
           type="submit"
           variant="secondary"
           label="Confirmar pedido"
-          // disabled={!hasShoppingCartItems}
+          disabled={!hasShoppingCartItems}
         />
       </div>
     </Container>
