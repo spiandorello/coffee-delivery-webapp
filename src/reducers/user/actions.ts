@@ -1,4 +1,4 @@
-export enum ActionsTypes {
+export enum UserActionsTypes {
   ADD_DELIVERY_ADDRESS = 'ADD_DELIVERY_ADDRESS',
   ADD_PAYMENT = 'ADD_PAYMENT_METHOD',
 }
@@ -19,7 +19,7 @@ export interface CustomerPaymentType {
 
 export function addDeliveryAddress(address: DeliveryAddressType) {
   return {
-    type: ActionsTypes.ADD_DELIVERY_ADDRESS,
+    type: UserActionsTypes.ADD_DELIVERY_ADDRESS,
     payload: {
       address,
     },
@@ -28,7 +28,7 @@ export function addDeliveryAddress(address: DeliveryAddressType) {
 
 export function addPayment(payment: CustomerPaymentType) {
   return {
-    type: ActionsTypes.ADD_PAYMENT,
+    type: UserActionsTypes.ADD_PAYMENT,
     payload: {
       payment,
     },

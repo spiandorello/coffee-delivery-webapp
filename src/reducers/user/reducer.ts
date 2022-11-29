@@ -1,6 +1,6 @@
 import { produce } from 'immer'
 
-import { ActionsTypes } from './actions'
+import { UserActionsTypes } from './actions'
 
 export interface AddressType {
   cep: string
@@ -23,14 +23,14 @@ export interface UserInterface {
 
 export function userReducers(state: UserInterface, action: any) {
   switch (action.type) {
-    case ActionsTypes.ADD_DELIVERY_ADDRESS:
+    case UserActionsTypes.ADD_DELIVERY_ADDRESS:
       return produce(state, (draft) => {
         draft.deliveryAddress = {
           ...draft.deliveryAddress,
           ...action.payload.address,
         }
       })
-    case ActionsTypes.ADD_PAYMENT:
+    case UserActionsTypes.ADD_PAYMENT:
       return produce(state, (draft) => {
         draft.payment = {
           ...draft.payment,
