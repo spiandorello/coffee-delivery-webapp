@@ -2,7 +2,7 @@
 
 ### Link da aplicação web
 
-
+[coffee delivery web](https://boisterous-bublanina-1cc128.netlify.app/)
 
 ### Sobre a aplicacão
 Nesse desafio, você vai desenvolver uma aplicação para gerenciar um carrinho de compras de uma cafeteria fictícia, que contém as seguintes funcionalidades:
